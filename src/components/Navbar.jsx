@@ -23,9 +23,15 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/coffees">Coffees</NavLink>
-                        <NavLink to="/dashboard">Dashboard</NavLink>
+                        <NavLink to="/" className={({ isActive}) =>
+                           isActive ? "font-bold" : ""
+                        }>Home</NavLink>
+                        <NavLink to="/coffees" className={({ isActive}) =>
+                           isActive ? "font-bold" : ""
+                        }>Coffees</NavLink>
+                        <NavLink to="/dashboard" className={({ isActive}) =>
+                           isActive ? "font-bold" : ""
+                        }>Dashboard</NavLink>
 
                     </ul>
                 </div>
@@ -33,9 +39,15 @@ const Navbar = () => {
             </div>
             <div className="navbar-end hidden lg:flex ">
                 <ul className="menu menu-horizontal px-1 gap-5 text-base">
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/coffees">Coffees</NavLink>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/" className={({ isActive}) =>
+                           isActive ? "font-bold" : ""
+                        }>Home</NavLink>
+                        <NavLink to="/coffees" className={({ isActive}) =>
+                           isActive ? "font-bold" : ""
+                        }>Coffees</NavLink>
+                        <NavLink to="/dashboard" className={({ isActive}) =>
+                           isActive ? "font-bold" : ""
+                        }>Dashboard</NavLink>
                 </ul>
             </div>
 
