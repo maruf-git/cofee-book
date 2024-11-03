@@ -5,38 +5,48 @@ import Coffees from "./Coffees";
 import Dashboard from "./Dashboard";
 import CategoryCoffeeCards from "./CategoryCoffeeCards";
 import CoffeeCards from "./CoffeeCards";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout></MainLayout>,
-        children:[
+        element: <div>
+            <MainLayout></MainLayout>
+            <Footer></Footer>
+        </div>,
+        children: [
             {
-                path:"/",
+                path: "/",
                 element: <Home></Home>,
-                loader: ()=>fetch("/categories.json"),
-                children:[
+                loader: () => fetch("/categories.json"),
+                children: [
                     {
-                        path:"/",
+                        path: "/",
                         element: <CoffeeCards></CoffeeCards>,
-                        loader: ()=>fetch("/coffees.json")
+                        loader: () => fetch("/coffees.json")
                     },
                     {
-                        path:"/categories/:categoryName",
-                        element:<CategoryCoffeeCards></CategoryCoffeeCards> ,
-                        loader: ()=>fetch("/coffees.json")
+                        path: "/categories/:categoryName",
+                        element: <CategoryCoffeeCards></CategoryCoffeeCards>,
+                        loader: () => fetch("/coffees.json")
                     },
                 ]
             },
+
             {
-                path:"/coffees",
-                element: <Coffees></Coffees>
-            },
-            {
-                path:"/dashboard",
+                path: "/dashboard",
                 element: <Dashboard></Dashboard>
             },
         ]
+    },
+    {
+        path: "/coffees",
+        element: <div>
+            <Navbar></Navbar>
+            <Coffees></Coffees>
+            <Footer></Footer>
+        </div>
     },
 ]);
 
